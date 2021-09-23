@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.JapaneseNT" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/dayColorPrimary</item>
+        <item name="colorPrimaryVariant">@color/dayColorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/dayColorAccent</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/dayColorAccent</item>
+        <item name="colorSecondaryVariant">@color/dayColorAccent</item>
+        <item name="colorOnSecondary">@color/dayColorAccent</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/dayColorText</item>
+        <item name="android:editTextColor">@color/dayColorText</item>
+
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/explode</item>
+        <item name="android:windowExitTransition">@android:transition/explode</item>
+    </style>
+</resources>

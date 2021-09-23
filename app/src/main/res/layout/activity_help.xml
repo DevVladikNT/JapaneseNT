@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpActivity"
+    android:background="?attr/colorPrimaryVariant">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:padding="16dp"
+        android:background="@drawable/buttons_style_p"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This app is in early access.\n
+I`ll be work with all my best!"
+                android:textAlignment="center"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="?attr/colorOnPrimary"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="There are 3 parts in japanese language:\n
+\t- Hiragana\n
+\t- Katakana\n
+\t- Kanji"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\tHiragana is used to write okurigana (kana suffixes following a kanji root, for example to inflect verbs and adjectives), various grammatical and function words including particles, as well as miscellaneous other native words for which there are no kanji or whose kanji form is obscure or too formal for the writing purpose. Words that do have common kanji renditions may also sometimes be written instead in hiragana, according to an individual author's preference, for example to impart an informal feel. Hiragana is also used to write furigana, a reading aid that shows the pronunciation of kanji characters. (wikipedia.org)"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\tIn contrast to the hiragana syllabary, which is used for Japanese words not covered by kanji and for grammatical inflections, the katakana syllabary usage is quite similar to italics in English; specifically, it is used for transcription of foreign-language words into Japanese and the writing of loan words (collectively gairaigo); for emphasis; to represent onomatopoeia; for technical and scientific terms; and for names of plants, animals, minerals and often Japanese companies. (wikipedia.org)"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\tKanji are a figure of logographic characters from Chinese script which forms a major part of the Japanese writing system alongside with Japanese syllabic scripts hiragana and katakana. (wikipedia.org)"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\tFirstly, I recommend to start with hiragana. Then, you can continue with katakana. Finally, you can begin to learn Kanji." />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

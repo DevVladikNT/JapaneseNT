@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dayColorPrimary">#FFFFFFFF</color>
+    <color name="dayColorPrimaryDark">#FFEEEEEE</color>
+    <color name="dayColorAccent">#FF666666</color>
+    <color name="dayColorText">#FF666666</color>
+
+    <color name="nightColorPrimary">#FF222222</color>
+    <color name="nightColorPrimaryDark">#FF333333</color>
+    <color name="nightColorAccent">#FFAAAAAA</color>
+    <color name="nightColorText">#FFAAAAAA</color>
+
+    <color name="trueAnswer">#9ccc65</color>
+    <color name="falseAnswer">#ef5350</color>
+</resources>
