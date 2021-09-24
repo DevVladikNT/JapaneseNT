@@ -19,6 +19,11 @@ class HiraganaActivity : AppCompatActivity() {
     private val task1mapReversed = mapOf("a" to "あ", "i" to "い", "u" to "う", "e" to "え", "o" to "お", "ka" to "か", "ga" to "が", "ki" to "き", "gi" to "ぎ", "ku" to "く", "gu" to "ぐ", "ke" to "け", "ge" to "げ", "ko" to "こ", "go" to "ご")
     private val task1keysReversed = arrayListOf("a", "i", "u", "e", "o", "ka", "ga", "ki", "gi", "ku", "gu", "ke", "ge", "ko", "go")
 
+    private val task2map = mapOf("さ" to "sa", "ざ" to "dza", "し" to "shi", "じ" to "ji", "す" to "su", "ず" to "dzu", "せ" to "se", "ぜ" to "dze", "そ" to "so", "ぞ" to "dzo", "た" to "ta", "だ" to "da", "ち" to "chi", "つ" to "tsu", "て" to "te", "で" to "de", "と" to "to", "ど" to "do")
+    private val task2keys = arrayListOf("さ", "ざ", "し", "じ", "す", "ず", "せ", "ぜ", "そ", "ぞ", "た", "だ", "ち", "つ", "て", "で", "と", "ど")
+    private val task2mapReversed = mapOf("sa" to "さ", "dza" to "ざ", "shi" to "し", "ji" to "じ", "su" to "す", "dzu" to "ず", "se" to "せ", "dze" to "ぜ", "so" to "そ", "dzo" to "ぞ", "ta" to "た", "da" to "だ", "chi" to "ち", "tsu" to "つ", "te" to "て", "de" to "で", "to" to "と", "do" to "ど")
+    private val task2keysReversed = arrayListOf("sa", "dza", "shi", "ji", "su", "dzu", "se", "dze", "so", "dzo", "ta", "da", "chi", "tsu", "te", "de", "to", "do")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hiragana)
@@ -49,7 +54,16 @@ class HiraganaActivity : AppCompatActivity() {
                     "く/ぐ - ku/gu\n" +
                     "け/げ - ke/ge\n" +
                     "こ/ご - ko/go"
-            R.id.hTask2 -> "empty"
+            R.id.hTask2 -> "さ/ざ - sa/dza\n" +
+                    "し/じ - shi/ji\n" +
+                    "す/ず - su/dzu\n" +
+                    "せ/ぜ - se/dze\n" +
+                    "そ/ぞ - so/dzo\n" +
+                    "た/だ - ta/da\n" +
+                    "ち/[ぢ] - chi/[ji]\n" +
+                    "つ/[づ] - tsu/[dzu]\n" +
+                    "て/で - te/de\n" +
+                    "と/ど - to/do"
             R.id.hTask3 -> "empty"
             R.id.hTask4 -> "empty"
             R.id.hTask5 -> "empty"
@@ -85,7 +99,7 @@ class HiraganaActivity : AppCompatActivity() {
         answered = false
         when (task) {
             1 -> {
-                if (counter % 2 == 0) {
+                if (counter < 5) {
                     question = task1keys[(Math.random() * 1000).toInt() % task1keys.size]
                     answer = task1map[question].toString()
                     findViewById<TextView>(R.id.hQuestion).text = question
@@ -148,7 +162,77 @@ class HiraganaActivity : AppCompatActivity() {
                 }
             }
             2 -> {
-                //
+                if (counter < 5) {
+                    if (Math.random() < 0.3) {
+                        question = task1keys[(Math.random() * 1000).toInt() % task1keys.size]
+                        answer = task1map[question].toString()
+                    } else {
+                        question = task2keys[(Math.random() * 1000).toInt() % task2keys.size]
+                        answer = task2map[question].toString()
+                    }
+                    findViewById<TextView>(R.id.hQuestion).text = question
+                    when ((Math.random() * 1000).toInt() % 4) {
+                        0 -> {
+                            findViewById<TextView>(R.id.hAnswer1).text = answer
+                            findViewById<TextView>(R.id.hAnswer2).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                            findViewById<TextView>(R.id.hAnswer3).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                            findViewById<TextView>(R.id.hAnswer4).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                        }
+                        1 -> {
+                            findViewById<TextView>(R.id.hAnswer1).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                            findViewById<TextView>(R.id.hAnswer2).text = answer
+                            findViewById<TextView>(R.id.hAnswer3).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                            findViewById<TextView>(R.id.hAnswer4).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                        }
+                        2 -> {
+                            findViewById<TextView>(R.id.hAnswer1).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                            findViewById<TextView>(R.id.hAnswer2).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                            findViewById<TextView>(R.id.hAnswer3).text = answer
+                            findViewById<TextView>(R.id.hAnswer4).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                        }
+                        3 -> {
+                            findViewById<TextView>(R.id.hAnswer1).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                            findViewById<TextView>(R.id.hAnswer2).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                            findViewById<TextView>(R.id.hAnswer3).text = task1map.plus(task2map)[task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]]
+                            findViewById<TextView>(R.id.hAnswer4).text = answer
+                        }
+                    }
+                } else {
+                    if (Math.random() < 0.3) {
+                        question = task1keysReversed[(Math.random() * 1000).toInt() % task1keysReversed.size]
+                        answer = task1mapReversed[question].toString()
+                    } else {
+                        question = task2keysReversed[(Math.random() * 1000).toInt() % task2keysReversed.size]
+                        answer = task2mapReversed[question].toString()
+                    }
+                    findViewById<TextView>(R.id.hQuestion).text = question
+                    when ((Math.random() * 1000).toInt() % 4) {
+                        0 -> {
+                            findViewById<TextView>(R.id.hAnswer1).text = answer
+                            findViewById<TextView>(R.id.hAnswer2).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                            findViewById<TextView>(R.id.hAnswer3).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                            findViewById<TextView>(R.id.hAnswer4).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                        }
+                        1 -> {
+                            findViewById<TextView>(R.id.hAnswer1).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                            findViewById<TextView>(R.id.hAnswer2).text = answer
+                            findViewById<TextView>(R.id.hAnswer3).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                            findViewById<TextView>(R.id.hAnswer4).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                        }
+                        2 -> {
+                            findViewById<TextView>(R.id.hAnswer1).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                            findViewById<TextView>(R.id.hAnswer2).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                            findViewById<TextView>(R.id.hAnswer3).text = answer
+                            findViewById<TextView>(R.id.hAnswer4).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                        }
+                        3 -> {
+                            findViewById<TextView>(R.id.hAnswer1).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                            findViewById<TextView>(R.id.hAnswer2).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                            findViewById<TextView>(R.id.hAnswer3).text = task1mapReversed.plus(task2mapReversed)[task1keysReversed.plus(task2keysReversed)[(Math.random() * 1000).toInt() % (task1keysReversed.size + task2keysReversed.size)]]
+                            findViewById<TextView>(R.id.hAnswer4).text = answer
+                        }
+                    }
+                }
             }
             3 -> {
                 //
