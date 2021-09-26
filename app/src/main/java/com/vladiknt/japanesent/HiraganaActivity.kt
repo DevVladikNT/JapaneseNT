@@ -30,7 +30,7 @@ class HiraganaActivity : AppCompatActivity() {
     private val task3keysReversed = arrayListOf("na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po")
 
     private val task4map = mapOf("ま" to "ma", "み" to "mi", "む" to "mu", "め" to "me", "も" to "mo", "や" to "ya", "ゆ" to "yu", "よ" to "yo", "ら" to "ra", "り" to "ri", "る" to "ru", "れ" to "re", "ろ" to "ro", "わ" to "wa", "を" to "wo", "ん" to "n")
-    private val task4keys = arrayListOf("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+    private val task4keys = arrayListOf("ま", "み", "む", "め", "も", "や", "ゆ", "よ", "ら", "り", "る", "れ", "ろ", "わ", "を", "ん")
     private val task4mapReversed = mapOf("ma" to "ま", "mi" to "み", "mu" to "む", "me" to "め", "mo" to "も", "ya" to "や", "yu" to "ゆ", "yo" to "よ", "ra" to "ら", "ri" to "り", "ru" to "る", "re" to "れ", "ro" to "ろ", "wa" to "わ", "wo" to "を", "n" to "ん")
     private val task4keysReversed = arrayListOf("ma", "mi", "mu", "me", "mo", "ya", "yu", "yo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "n")
 
