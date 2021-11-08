@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun katakanaButton(view: View?) {
-        Toast.makeText(this, "This is unavailable now.", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, KatakanaActivity::class.java)
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
     }
 
     fun kanjiButton(view: View?) {

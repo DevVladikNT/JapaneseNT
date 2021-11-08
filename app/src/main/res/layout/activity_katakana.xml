@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimaryVariant"
-    tools:context=".HiraganaActivity">
+    tools:context=".KatakanaActivity">
 
     <TextView
-        android:id="@+id/hTaskText"
+        android:id="@+id/kTaskText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -18,18 +18,18 @@
         android:elevation="4dp"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Hiragana task"
+        android:text="Katakana task"
         android:textSize="18sp" />
 
     <RadioGroup
-        android:id="@+id/hRadioGroup"
+        android:id="@+id/kRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/hTaskText"
+        android:layout_below="@id/kTaskText"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/hTask1"
+            android:id="@+id/kTask1"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
@@ -45,7 +45,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/hTask2"
+            android:id="@+id/kTask2"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -61,7 +61,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/hTask3"
+            android:id="@+id/kTask3"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -77,7 +77,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/hTask4"
+            android:id="@+id/kTask4"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -93,7 +93,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/hTask5"
+            android:id="@+id/kTask5"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -111,11 +111,11 @@
     </RadioGroup>
 
     <ScrollView
-        android:id="@+id/hExplainTextOutside"
+        android:id="@+id/kExplainTextOutside"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/hStartButton"
-        android:layout_below="@id/hRadioGroup"
+        android:layout_above="@id/kStartButton"
+        android:layout_below="@id/kRadioGroup"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -124,7 +124,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/hExplainText"
+            android:id="@+id/kExplainText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="32sp"
@@ -133,10 +133,10 @@
     </ScrollView>
 
     <TextView
-        android:id="@+id/hProgressbar"
+        android:id="@+id/kProgressbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/hRadioGroup"
+        android:layout_below="@id/kRadioGroup"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -149,16 +149,16 @@
         android:visibility="invisible" />
 
     <LinearLayout
-        android:id="@+id/hTrain"
+        android:id="@+id/kTrain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/hNextButton"
-        android:layout_below="@id/hProgressbar"
+        android:layout_above="@id/kNextButton"
+        android:layout_below="@id/kProgressbar"
         android:orientation="vertical"
         android:visibility="invisible">
 
         <TextView
-            android:id="@+id/hQuestion"
+            android:id="@+id/kQuestion"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
@@ -178,7 +178,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/hAnswer1"
+                android:id="@+id/kAnswer1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
@@ -193,7 +193,7 @@
                 android:textSize="64sp" />
 
             <TextView
-                android:id="@+id/hAnswer2"
+                android:id="@+id/kAnswer2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
@@ -216,7 +216,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/hAnswer3"
+                android:id="@+id/kAnswer3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
@@ -231,7 +231,7 @@
                 android:textSize="64sp" />
 
             <TextView
-                android:id="@+id/hAnswer4"
+                android:id="@+id/kAnswer4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
@@ -250,7 +250,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/hStartButton"
+        android:id="@+id/kStartButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -267,7 +267,7 @@
         android:visibility="visible" />
 
     <TextView
-        android:id="@+id/hNextButton"
+        android:id="@+id/kNextButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"

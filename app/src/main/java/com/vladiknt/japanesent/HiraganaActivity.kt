@@ -98,7 +98,7 @@ class HiraganaActivity : AppCompatActivity() {
                     "れ - re\n" +
                     "ろ - ro\n" +
                     "わ - wa\n" +
-                    "を - wo\n" +
+                    "を - o(wo)\n" +
                     "ん - n"
             R.id.hTask5 -> "empty"
             else -> ""
