@@ -19,9 +19,9 @@ class KatakanaActivity : AppCompatActivity() {
     private val task1mapReversed = mapOf("a" to "ア", "i" to "イ", "u" to "ウ", "e" to "エ", "o" to "オ", "ka" to "カ", "ga" to "ガ", "ki" to "キ", "gi" to "ギ", "ku" to "ク", "gu" to "グ", "ke" to "ケ", "ge" to "ゲ", "ko" to "コ", "go" to "ゴ")
     private val task1keysReversed = arrayListOf("a", "i", "u", "e", "o", "ka", "ga", "ki", "gi", "ku", "gu", "ke", "ge", "ko", "go")
 
-    private val task2map = mapOf("さ" to "sa", "ざ" to "dza", "し" to "shi", "じ" to "ji", "す" to "su", "ず" to "dzu", "せ" to "se", "ぜ" to "dze", "そ" to "so", "ぞ" to "dzo", "た" to "ta", "だ" to "da", "ち" to "chi", "つ" to "tsu", "て" to "te", "で" to "de", "と" to "to", "ど" to "do")
-    private val task2keys = arrayListOf("さ", "ざ", "し", "じ", "す", "ず", "せ", "ぜ", "そ", "ぞ", "た", "だ", "ち", "つ", "て", "で", "と", "ど")
-    private val task2mapReversed = mapOf("sa" to "さ", "dza" to "ざ", "shi" to "し", "ji" to "じ", "su" to "す", "dzu" to "ず", "se" to "せ", "dze" to "ぜ", "so" to "そ", "dzo" to "ぞ", "ta" to "た", "da" to "だ", "chi" to "ち", "tsu" to "つ", "te" to "て", "de" to "で", "to" to "と", "do" to "ど")
+    private val task2map = mapOf("サ" to "sa", "ザ" to "dza", "シ" to "shi", "ジ" to "ji", "ス" to "su", "ズ" to "dzu", "セ" to "se", "ゼ" to "dze", "ソ" to "so", "ゾ" to "dzo", "タ" to "ta", "ダ" to "da", "チ" to "chi", "ツ" to "tsu", "テ" to "te", "デ" to "de", "ト" to "to", "ド" to "do")
+    private val task2keys = arrayListOf("サ", "ザ", "シ", "ジ", "ス", "ズ", "セ", "ゼ", "ソ", "ゾ", "タ", "ダ", "チ", "ツ", "テ", "デ", "ト", "ド")
+    private val task2mapReversed = mapOf("sa" to "サ", "dza" to "ザ", "shi" to "シ", "ji" to "ジ", "su" to "ス", "dzu" to "ズ", "se" to "セ", "dze" to "ゼ", "so" to "ソ", "dzo" to "ゾ", "ta" to "タ", "da" to "ダ", "chi" to "チ", "tsu" to "ツ", "te" to "テ", "de" to "デ", "to" to "ト", "do" to "ド")
     private val task2keysReversed = arrayListOf("sa", "dza", "shi", "ji", "su", "dzu", "se", "dze", "so", "dzo", "ta", "da", "chi", "tsu", "te", "de", "to", "do")
 
     private val task3map = mapOf("な" to "na", "に" to "ni", "ぬ" to "nu", "ね" to "ne", "の" to "no", "は" to "ha", "ひ" to "hi", "ふ" to "fu", "へ" to "he", "ほ" to "ho", "ば" to "ba", "び" to "bi", "ぶ" to "bu", "べ" to "be", "ぼ" to "bo", "ぱ" to "pa", "ぴ" to "pi", "ぷ" to "pu", "ぺ" to "pe", "ぽ" to "po")
