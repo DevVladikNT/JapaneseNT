@@ -12,5 +12,8 @@ It has:
 
 You need Android v5.0 and higher on mobile for correct work.<br>
 
-My group for projects: <a href="https://vk.com/game_dev_spb">Pho2.7nix</a><br>
-You can find me via <a href="https://vk.com/vladikvasilyev">VK</a>
+### Contacts
+
+You cand find me via <a href="https://t.me/VladikNT">Telegram</a><br>
+You can find me via <a href="https://vk.com/vladikvasilyev">VK</a><br>
+My group for projects: <a href="https://vk.com/game_dev_spb">Pho2.7nix</a>
