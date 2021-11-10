@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import android.widget.Toast
 
 class HiraganaActivity : AppCompatActivity() {
     private var task = 0
@@ -100,20 +101,28 @@ class HiraganaActivity : AppCompatActivity() {
                     "わ - wa\n" +
                     "を - o(wo)\n" +
                     "ん - n"
-            R.id.hTask5 -> "empty"
+            R.id.hTask5 -> "Any kana \"_i\" + small や = \"_ya\"\n" +
+                    "Any kana \"_i\" + small ゆ = \"_yu\"\n" +
+                    "Any kana \"_i\" + small よ = \"_yo\"\n" +
+                    "For example, きゃ - kya, にゅ - nyu\n" +
+                    "\n" +
+                    "Small つ + any kana (except vowels) = kana with double consonant\n" +
+                    "For example, った - tta, っけ - kke"
             else -> ""
         }
     }
 
     fun startTrain(view: View?) {
-        findViewById<LinearLayout>(R.id.hTrain).visibility = View.VISIBLE
-        findViewById<TextView>(R.id.hProgressbar).visibility = View.VISIBLE
-        findViewById<TextView>(R.id.hNextButton).visibility = View.VISIBLE
-        findViewById<ScrollView>(R.id.hExplainTextOutside).visibility = View.INVISIBLE
-        findViewById<TextView>(R.id.hStartButton).visibility = View.INVISIBLE
-        counter = 0
-        answered = true
-        loadQuestion(null)
+        if (task in 1..4) {
+            findViewById<LinearLayout>(R.id.hTrain).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.hProgressbar).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.hNextButton).visibility = View.VISIBLE
+            findViewById<ScrollView>(R.id.hExplainTextOutside).visibility = View.INVISIBLE
+            findViewById<TextView>(R.id.hStartButton).visibility = View.INVISIBLE
+            counter = 0
+            answered = true
+            loadQuestion(null)
+        } else Toast.makeText(this, "There aren`t any test for this task", Toast.LENGTH_SHORT).show()
     }
 
     fun loadQuestion(view: View?) {
@@ -133,7 +142,7 @@ class HiraganaActivity : AppCompatActivity() {
         answered = false
         when (task) {
             1 -> {
-                if (counter < 10) {
+                if (counter >= 10) {
                     question = task1keys[(Math.random() * 1000).toInt() % task1keys.size]
                     answer = task1map[question].toString()
                     findViewById<TextView>(R.id.hQuestion).text = question
@@ -164,7 +173,7 @@ class HiraganaActivity : AppCompatActivity() {
                 }
             }
             2 -> {
-                if (counter < 10) {
+                if (counter >= 10) {
                     if (Math.random() < 0.25) {
                         question = task1keys[(Math.random() * 1000).toInt() % task1keys.size]
                         answer = task1map[question].toString()
@@ -205,7 +214,7 @@ class HiraganaActivity : AppCompatActivity() {
                 }
             }
             3 -> {
-                if (counter < 10) {
+                if (counter >= 10) {
                     if (Math.random() < 0.25) {
                         question = task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]
                         answer = task1map.plus(task2map)[question].toString()
@@ -246,7 +255,7 @@ class HiraganaActivity : AppCompatActivity() {
                 }
             }
             4 -> {
-                if (counter < 10) {
+                if (counter >= 10) {
                     if (Math.random() < 0.25) {
                         question = task1keys.plus(task2keys).plus(task3keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size + task3keys.size)]
                         answer = task1map.plus(task2map).plus(task3map)[question].toString()
@@ -285,9 +294,6 @@ class HiraganaActivity : AppCompatActivity() {
                         3 -> findViewById<TextView>(R.id.hAnswer4).text = answer
                     }
                 }
-            }
-            5 -> {
-                //
             }
         }
     }

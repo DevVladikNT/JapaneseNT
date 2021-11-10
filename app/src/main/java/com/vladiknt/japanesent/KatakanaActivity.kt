@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import android.widget.Toast
 
 class KatakanaActivity : AppCompatActivity() {
     private var task = 0
@@ -24,9 +25,9 @@ class KatakanaActivity : AppCompatActivity() {
     private val task2mapReversed = mapOf("sa" to "サ", "dza" to "ザ", "shi" to "シ", "ji" to "ジ", "su" to "ス", "dzu" to "ズ", "se" to "セ", "dze" to "ゼ", "so" to "ソ", "dzo" to "ゾ", "ta" to "タ", "da" to "ダ", "chi" to "チ", "tsu" to "ツ", "te" to "テ", "de" to "デ", "to" to "ト", "do" to "ド")
     private val task2keysReversed = arrayListOf("sa", "dza", "shi", "ji", "su", "dzu", "se", "dze", "so", "dzo", "ta", "da", "chi", "tsu", "te", "de", "to", "do")
 
-    private val task3map = mapOf("な" to "na", "に" to "ni", "ぬ" to "nu", "ね" to "ne", "の" to "no", "は" to "ha", "ひ" to "hi", "ふ" to "fu", "へ" to "he", "ほ" to "ho", "ば" to "ba", "び" to "bi", "ぶ" to "bu", "べ" to "be", "ぼ" to "bo", "ぱ" to "pa", "ぴ" to "pi", "ぷ" to "pu", "ぺ" to "pe", "ぽ" to "po")
-    private val task3keys = arrayListOf("な", "に", "ぬ", "ね", "の", "は", "ひ", "ふ", "へ", "ほ", "ば", "び", "ぶ", "べ", "ぼ", "ぱ", "ぴ", "ぷ", "ぺ", "ぽ")
-    private val task3mapReversed = mapOf("na" to "な", "ni" to "に", "nu" to "ぬ", "ne" to "ね", "no" to "の", "ha" to "は", "hi" to "ひ", "fu" to "ふ", "he" to "へ", "ho" to "ほ", "ba" to "ば", "bi" to "び", "bu" to "ぶ", "be" to "べ", "bo" to "ぼ", "pa" to "ぱ", "pi" to "ぴ", "pu" to "ぷ", "pe" to "ぺ", "po" to "ぽ")
+    private val task3map = mapOf("ナ" to "na", "ニ" to "ni", "ヌ" to "nu", "ネ" to "ne", "ノ" to "no", "ハ" to "ha", "ヒ" to "hi", "フ" to "fu", "ヘ" to "he", "ホ" to "ho", "バ" to "ba", "ビ" to "bi", "ブ" to "bu", "ベ" to "be", "ボ" to "bo", "パ" to "pa", "ピ" to "pi", "プ" to "pu", "ペ" to "pe", "ポ" to "po")
+    private val task3keys = arrayListOf("ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ", "バ", "ビ", "ブ", "ベ", "ボ", "パ", "ピ", "プ", "ペ", "ポ")
+    private val task3mapReversed = mapOf("na" to "ナ", "ni" to "ニ", "nu" to "ヌ", "ne" to "ネ", "no" to "ノ", "ha" to "ハ", "hi" to "ヒ", "fu" to "フ", "he" to "ヘ", "ho" to "ホ", "ba" to "バ", "bi" to "ビ", "bu" to "ブ", "be" to "ベ", "bo" to "ボ", "pa" to "パ", "pi" to "ピ", "pu" to "プ", "pe" to "ペ", "po" to "ポ")
     private val task3keysReversed = arrayListOf("na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po")
 
     private val task4map = mapOf("ま" to "ma", "み" to "mi", "む" to "mu", "め" to "me", "も" to "mo", "や" to "ya", "ゆ" to "yu", "よ" to "yo", "ら" to "ra", "り" to "ri", "る" to "ru", "れ" to "re", "ろ" to "ro", "わ" to "wa", "を" to "wo", "ん" to "n")
@@ -100,20 +101,30 @@ class KatakanaActivity : AppCompatActivity() {
                     "ワ - wa\n" +
                     "ヲ - o(wo)\n" +
                     "ン - n"
-            R.id.kTask5 -> "empty"
+            R.id.kTask5 -> "Any kana \"_i\" + small ヤ = \"_ya\"\n" +
+                    "Any kana \"_i\" + small ユ = \"_yu\"\n" +
+                    "Any kana \"_i\" + small ヨ = \"_yo\"\n" +
+                    "For example, キャ - kya, ニュ - nyu\n" +
+                    "There are also used small ア, イ, ウ, エ, オ in katakana (with several kanas)\n" +
+                    "For example, ファ - fa, ティ - ti\n" +
+                    "\n" +
+                    "Small ッ + any kana (except vowels) = kana with double consonant\n" +
+                    "For example, ッタ - tta, ッケ - kke"
             else -> ""
         }
     }
 
     fun startTrain(view: View?) {
-        findViewById<LinearLayout>(R.id.kTrain).visibility = View.VISIBLE
-        findViewById<TextView>(R.id.kProgressbar).visibility = View.VISIBLE
-        findViewById<TextView>(R.id.kNextButton).visibility = View.VISIBLE
-        findViewById<ScrollView>(R.id.kExplainTextOutside).visibility = View.INVISIBLE
-        findViewById<TextView>(R.id.kStartButton).visibility = View.INVISIBLE
-        counter = 0
-        answered = true
-        loadQuestion(null)
+        if (task in 1..4) {
+            findViewById<LinearLayout>(R.id.kTrain).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.kProgressbar).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.kNextButton).visibility = View.VISIBLE
+            findViewById<ScrollView>(R.id.kExplainTextOutside).visibility = View.INVISIBLE
+            findViewById<TextView>(R.id.kStartButton).visibility = View.INVISIBLE
+            counter = 0
+            answered = true
+            loadQuestion(null)
+        } else Toast.makeText(this, "There aren`t any test for this task", Toast.LENGTH_SHORT).show()
     }
 
     fun loadQuestion(view: View?) {
@@ -133,7 +144,7 @@ class KatakanaActivity : AppCompatActivity() {
         answered = false
         when (task) {
             1 -> {
-                if (counter < 10) {
+                if (counter >= 10) {
                     question = task1keys[(Math.random() * 1000).toInt() % task1keys.size]
                     answer = task1map[question].toString()
                     findViewById<TextView>(R.id.kQuestion).text = question
@@ -164,7 +175,7 @@ class KatakanaActivity : AppCompatActivity() {
                 }
             }
             2 -> {
-                if (counter < 10) {
+                if (counter >= 10) {
                     if (Math.random() < 0.25) {
                         question = task1keys[(Math.random() * 1000).toInt() % task1keys.size]
                         answer = task1map[question].toString()
@@ -205,7 +216,7 @@ class KatakanaActivity : AppCompatActivity() {
                 }
             }
             3 -> {
-                if (counter < 10) {
+                if (counter >= 10) {
                     if (Math.random() < 0.25) {
                         question = task1keys.plus(task2keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size)]
                         answer = task1map.plus(task2map)[question].toString()
@@ -246,7 +257,7 @@ class KatakanaActivity : AppCompatActivity() {
                 }
             }
             4 -> {
-                if (counter < 10) {
+                if (counter >= 10) {
                     if (Math.random() < 0.25) {
                         question = task1keys.plus(task2keys).plus(task3keys)[(Math.random() * 1000).toInt() % (task1keys.size + task2keys.size + task3keys.size)]
                         answer = task1map.plus(task2map).plus(task3map)[question].toString()
@@ -285,9 +296,6 @@ class KatakanaActivity : AppCompatActivity() {
                         3 -> findViewById<TextView>(R.id.kAnswer4).text = answer
                     }
                 }
-            }
-            5 -> {
-                //
             }
         }
     }
