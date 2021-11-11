@@ -30,9 +30,9 @@ class KatakanaActivity : AppCompatActivity() {
     private val task3mapReversed = mapOf("na" to "ナ", "ni" to "ニ", "nu" to "ヌ", "ne" to "ネ", "no" to "ノ", "ha" to "ハ", "hi" to "ヒ", "fu" to "フ", "he" to "ヘ", "ho" to "ホ", "ba" to "バ", "bi" to "ビ", "bu" to "ブ", "be" to "ベ", "bo" to "ボ", "pa" to "パ", "pi" to "ピ", "pu" to "プ", "pe" to "ペ", "po" to "ポ")
     private val task3keysReversed = arrayListOf("na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ba", "bi", "bu", "be", "bo", "pa", "pi", "pu", "pe", "po")
 
-    private val task4map = mapOf("ま" to "ma", "み" to "mi", "む" to "mu", "め" to "me", "も" to "mo", "や" to "ya", "ゆ" to "yu", "よ" to "yo", "ら" to "ra", "り" to "ri", "る" to "ru", "れ" to "re", "ろ" to "ro", "わ" to "wa", "を" to "wo", "ん" to "n")
-    private val task4keys = arrayListOf("ま", "み", "む", "め", "も", "や", "ゆ", "よ", "ら", "り", "る", "れ", "ろ", "わ", "を", "ん")
-    private val task4mapReversed = mapOf("ma" to "ま", "mi" to "み", "mu" to "む", "me" to "め", "mo" to "も", "ya" to "や", "yu" to "ゆ", "yo" to "よ", "ra" to "ら", "ri" to "り", "ru" to "る", "re" to "れ", "ro" to "ろ", "wa" to "わ", "wo" to "を", "n" to "ん")
+    private val task4map = mapOf("マ" to "ma", "ミ" to "mi", "ム" to "mu", "メ" to "me", "モ" to "mo", "ヤ" to "ya", "ユ" to "yu", "ヨ" to "yo", "ラ" to "ra", "リ" to "ri", "ル" to "ru", "レ" to "re", "ロ" to "ro", "ワ" to "wa", "ヲ" to "wo", "ン" to "n")
+    private val task4keys = arrayListOf("マ", "ミ", "ム", "メ", "モ", "ヤ", "ユ", "ヨ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ヲ", "ン")
+    private val task4mapReversed = mapOf("ma" to "マ", "mi" to "ミ", "mu" to "ム", "me" to "メ", "mo" to "モ", "ya" to "ヤ", "yu" to "ユ", "yo" to "ヨ", "ra" to "ラ", "ri" to "リ", "ru" to "ル", "re" to "レ", "ro" to "ロ", "wa" to "ワ", "wo" to "ヲ", "n" to "ン")
     private val task4keysReversed = arrayListOf("ma", "mi", "mu", "me", "mo", "ya", "yu", "yo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "n")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,7 +109,10 @@ class KatakanaActivity : AppCompatActivity() {
                     "For example, ファ - fa, ティ - ti\n" +
                     "\n" +
                     "Small ッ + any kana (except vowels) = kana with double consonant\n" +
-                    "For example, ッタ - tta, ッケ - kke"
+                    "For example, ッタ - tta, ッケ - kke\n" +
+                    "\n" +
+                    "ヴ = w, if used with small vowels\n" +
+                    "For example, ヴィ - wi, ヴォ - wo (ヴ - wu)\n"
             else -> ""
         }
     }
